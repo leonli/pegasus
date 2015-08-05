@@ -28,9 +28,13 @@ class InfoBar extends Component {
   }
 }
 
-@connect(state => ({
-  info: state.info.data
-}))
+@connect(state => {
+  return (
+    {
+      info: state.info.get('data')
+    }
+  );
+})
 export default
 class InfoBarContainer {
   static propTypes = {
