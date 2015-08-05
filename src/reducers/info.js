@@ -16,15 +16,11 @@ export default function info(state = initialState, action = {}) {
   }
   switch (action.type) {
     case INFO_LOAD:
-      return nextState.set('loading', true);
+      return nextState.concat({loading: true});
     case INFO_LOAD_SUCCESS:
-      return nextState.set('loading', false)
-                  .set('loaded', false)
-                  .set('data', action.result);
+      return nextState.concat({loading: false, loaded: false, data: action.result});
     case INFO_LOAD_FAIL:
-      return nextState.set('loading', false)
-                  .set('loaded', false)
-                  .set('error', action.error);
+      return nextState.concat({loading: false, loaded: false, error: action.error});
     default:
       return state;
   }
